@@ -1,5 +1,6 @@
 import os
 from PIL import Image
+import random
 
 def resize_images(source_folder=None, dest_folder_name="optimised", width=None):
     """Resizes and compresses all images in source_folder and saves them in a sub-folder."""
@@ -35,7 +36,9 @@ def resize_images(source_folder=None, dest_folder_name="optimised", width=None):
                 dest_path = os.path.join(dest_folder, filename)
                 im_resized.save(dest_path, "JPEG", quality=85)
         except Exception as e:
-            print(f"Unable to process {filename}. Reason: {e}")
+            print("Unable to process {}. Reason: {}".format(filename, e))
 
 # Usage
-resize_images(width=800)
+
+width = random.randint(1300, 1800)
+resize_images(width=width)
