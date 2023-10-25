@@ -34,7 +34,7 @@ def resize_images(source_folder=None, dest_folder_name="optimised", width=None):
                 
                 # Save resized and compressed image
                 dest_path = os.path.join(dest_folder, filename)
-                im_resized.save(dest_path, "JPEG", quality=85)
+                im_resized.save(dest_path, "JPEG", quality=65)
         except Exception as e:
             print("Unable to process {}. Reason: {}".format(filename, e))
 
