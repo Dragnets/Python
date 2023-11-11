@@ -19,24 +19,25 @@ def resize_images(source_folder=None, dest_folder_name="optimised", width=None):
         file_path = os.path.join(source_folder, filename)
         
         # Check if the file is an image
-        try:
-            with Image.open(file_path) as im:
-                # If width is provided, calculate height to maintain aspect ratio
-                if width:
-                    w_percent = width / float(im.size[0])
-                    height = int((float(im.size[1]) * float(w_percent)))
-                    new_size = (width, height)
-                else:
-                    new_size = im.size
-                
-                # Resize
-                im_resized = im.resize(new_size)
-                
-                # Save resized and compressed image
-                dest_path = os.path.join(dest_folder, filename)
-                im_resized.save(dest_path, "JPEG", quality=65)
-        except Exception as e:
-            print("Unable to process {}. Reason: {}".format(filename, e))
+        if os.path.isfile(file_path) and file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif', '.tiff')):
+            try:
+                with Image.open(file_path) as im:
+                    # If width is provided, calculate height to maintain aspect ratio
+                    if width:
+                        w_percent = width / float(im.size[0])
+                        height = int((float(im.size[1]) * float(w_percent)))
+                        new_size = (width, height)
+                    else:
+                        new_size = im.size
+                    
+                    # Resize
+                    img_resized = im.resize(new_size)
+                    
+                    # Save resized and compressed image
+                    dest_path = os.path.join(dest_folder, filename)
+                    img_resized.save(dest_path, "JPEG", quality=65)
+            except Exception as e:
+                print("Unable to process {}. Reason: {}".format(filename, e))
 
 # Usage
 
