@@ -3,7 +3,7 @@ from PIL import Image
 import random
 
 def resize_images(source_folder=None, dest_folder_name="optimised", width=None):
-    """Resizes and compresses all images in source_folder and saves them in a sub-folder."""
+    """Resizes and compresses all images in source_folder and saves them in JPEG format in a sub-folder."""
     
     # If no source_folder is provided, use the current directory of the script
     if source_folder is None:
@@ -33,13 +33,15 @@ def resize_images(source_folder=None, dest_folder_name="optimised", width=None):
                     # Resize
                     img_resized = im.resize(new_size)
                     
-                    # Save resized and compressed image
-                    dest_path = os.path.join(dest_folder, filename)
+                    # Change the filename to have a .jpg extension
+                    new_filename = os.path.splitext(filename)[0] + '.jpg'
+                    dest_path = os.path.join(dest_folder, new_filename)
+
+                    # Save resized and compressed image in JPEG format
                     img_resized.save(dest_path, "JPEG", quality=65)
             except Exception as e:
                 print("Unable to process {}. Reason: {}".format(filename, e))
 
 # Usage
-
 width = random.randint(1300, 1800)
 resize_images(width=width)
