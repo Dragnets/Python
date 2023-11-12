@@ -1,0 +1,1 @@
+pythonw C:\Users\Raitis\Desktop\Python\image-optimiser.py

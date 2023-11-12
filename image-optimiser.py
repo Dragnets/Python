@@ -19,7 +19,7 @@ def resize_images(source_folder=None, dest_folder_name="optimised", width=None):
         file_path = os.path.join(source_folder, filename)
         
         # Check if the file is an image
-        if os.path.isfile(file_path) and file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif', '.tiff')):
+        if os.path.isfile(file_path) and file_path.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp', '.gif', '.tiff', '.heic')):
             try:
                 with Image.open(file_path) as im:
                     # If width is provided, calculate height to maintain aspect ratio
