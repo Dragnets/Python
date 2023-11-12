@@ -1,0 +1,10 @@
+#ignore Images
+*.jpg
+*.png
+*.jpeg
+*.bmp
+*.gif
+*.tiff
+*.heic
+# Ignore all directories
+*/
