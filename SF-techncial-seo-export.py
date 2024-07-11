@@ -29,6 +29,6 @@ def remove_columns(file_path, columns_to_remove, output_file):
 if __name__ == "__main__":
     input_file_path = "internal_all.xlsx"
     output_file_path = "modified_internal_all.xlsx"
-    columns_to_remove = ['H', 'I', 'K', 'L', 'N','R', 'S', 'T', 'V', 'W', 'AA', 'AB', 'AC', 'AD', 'AE', 'AG', 'AH', 'AK', 'AM', 'AN', 'AO', 'AQ', 'AR', 'AS', 'AT', 'AU', 'AV', 'AX', 'AY', 'AZ', 'BC', 'BD', 'BE', 'BF', 'BG', 'BH', 'BI']  # Excel columns to be removed
+    columns_to_remove = ['H', 'I', 'K', 'L', 'K', 'N', 'P', 'R', 'S', 'T', 'V', 'X', 'Y', 'AC', 'AD', 'AC', 'AD','AE', 'AF', 'AG', 'AI', 'AJ', 'AM', 'AO', 'AP', 'AQ', 'AS', 'AT', 'AU', 'AV', 'AW','AX', 'AZ', 'BA', 'BB', 'BE', 'BF', 'BG', 'BH', 'BI', 'BJ', 'BK']  # Excel columns to be removed
 
     remove_columns(input_file_path, columns_to_remove, output_file_path)
