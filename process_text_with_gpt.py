@@ -2,7 +2,7 @@ import os
 import openai
 
 # Initialize OpenAI API with your API key
-openai.api_key = 'YOUR API'
+openai.api_key = 'API'
 
 # Define the function to process text through GPT-4
 def process_text_with_gpt(text):
@@ -10,7 +10,7 @@ def process_text_with_gpt(text):
         model="gpt-4o",
         messages=[
             {"role": "system", "content": "You are an expert working with .php files to correct grammar, spelling, and improving readability in British English. Do not add code blocks, comments, explanations, or any extra content other than the corrected PHP code."},
-            {"role": "user", "content": f"Here is a Laravel blade code, Please correct the following text for grammar, spelling, and readability without adding any additional information or context:\n\n{text}"}
+            {"role": "user", "content": f"Here is a Laravel blade code. Do not add any comments, explanation, or code block formatting. Please correct the following text for grammar, spelling, and readability without adding any additional information or context. Do not remove numbers from headings. Any overuse of hyphens (-) needs to be removed, including to connect words. Do not add any extra hypens.:\n\n{text}"}
         ]
     )
     return response['choices'][0]['message']['content']
